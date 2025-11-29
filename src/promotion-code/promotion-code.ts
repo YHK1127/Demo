@@ -1,115 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
 import {MatCardModule} from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { AppService } from '../app-service';
 
 @Component({
   selector: 'app-promotion-code',
-  imports: [Navbar,MatCardModule,MatButton],
+  standalone:true,
+  imports: [Navbar,MatCardModule,MatButton,MatPaginatorModule,MatTableModule],
   templateUrl: './promotion-code.html',
   styleUrl: './promotion-code.scss',
 })
-export class PromotionCode {
-records=[
-  {
-    ID:1,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:2,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'FL33T1%',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:3,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:4,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:5,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:6,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:7,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:8,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:9,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
-  },
-  {
-    ID:10,
-    CreatedBy:'Admin',
-    Status:1,
-    CreatedDate:'10/9/2020 1:56:17 PM',
-    Code_Classification:'Promotional Code',
-    Discount_Code:'DMS',
-    Description:'1 Percent off Fleets',
-    Discount_Amount:0.08,
+export class PromotionCode implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator)paginator!: MatPaginator;
+  columns=['ID','Created By','Status','Created Date','Code Classification','Discount Code','Description','Discount Amount','Actions']
+  constructor(private appService:AppService){}
+   records = new MatTableDataSource<any>();
+  ngOnInit() {
+    // load data
+    this.records.data = this.appService.data;
   }
-]
+
+  ngAfterViewInit() {
+    // attach paginator AFTER view is created
+    this.records.paginator = this.paginator;
+  }
+onEdit(e:any){
+  
+}
+onDelete(e:any){
+  this.records.data=this.records.data.filter(ele=>{
+    return ele.ID!=e.ID;
+  })
+}
 }
