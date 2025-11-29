@@ -1,12 +1,115 @@
 import { Component } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
+import {MatCardModule} from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-promotion-code',
-  imports: [Navbar],
+  imports: [Navbar,MatCardModule,MatButton],
   templateUrl: './promotion-code.html',
   styleUrl: './promotion-code.scss',
 })
 export class PromotionCode {
-
+records=[
+  {
+    ID:1,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:2,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'FL33T1%',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:3,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:4,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:5,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:6,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:7,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:8,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:9,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  },
+  {
+    ID:10,
+    CreatedBy:'Admin',
+    Status:1,
+    CreatedDate:'10/9/2020 1:56:17 PM',
+    Code_Classification:'Promotional Code',
+    Discount_Code:'DMS',
+    Description:'1 Percent off Fleets',
+    Discount_Amount:0.08,
+  }
+]
 }
